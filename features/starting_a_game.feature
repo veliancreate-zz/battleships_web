@@ -8,10 +8,13 @@ Feature: Starting the game
 		When I follow the "New Game"
 		Then I should see "Welcome to Battleships!"
 
-  Scenario: Creating a player
-    Given I am on new_game page
-    When I click on "Create player"
-    Then I should see: "What's your name?"
+	Scenario: Creating a player
+		Given you see a form on new_game
+		When you enter your name and click submit 
+		Then I should see a board
+
+
+
 
 
 

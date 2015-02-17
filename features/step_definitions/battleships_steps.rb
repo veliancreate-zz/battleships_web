@@ -1,3 +1,27 @@
+Given(/^I see a form$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^you shoot on a coordinate$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should be told if I have hit$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Given(/^my opponents ships have all sunk$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+When(/^I am the winner$/) do
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^I should be told that "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
 Given(/^I am on the homepage$/) do
   visit('/')    
 end
@@ -10,14 +34,14 @@ Then(/^I should see "(.*?)"$/) do |arg1|
   expect(page).to have_content(arg1)
 end
 
-Given(/^I am on new_game page$/) do
-  visit('new_game')
+Given(/^you see a form on new_game$/) do
+  pending # express the regexp above with the code you wish you had
 end
 
-When(/^I click on "(.*?)"$/) do |create_player|
-  click_link(create_player)
+When(/^you enter your name and click submit$/) do
+  pending # express the regexp above with the code you wish you had
 end
 
-Then(/^I should see: "(.*?)"$/) do |arg1|
-  expect(page).fill_in('Player name', :with => "John")
+Then(/^I should see a board$/) do
+  pending # express the regexp above with the code you wish you had
 end
