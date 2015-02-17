@@ -10,10 +10,6 @@ Then(/^I should see "(.*?)"$/) do |arg1|
   expect(page).to have_content(arg1)
 end
 
-
-
-
-
 Given(/^I am on new_game page$/) do
   visit('new_game')
 end
