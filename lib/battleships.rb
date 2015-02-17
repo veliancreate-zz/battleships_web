@@ -2,8 +2,10 @@ require 'sinatra/base'
 
 class BattleShips < Sinatra::Base
   get '/' do
-    'Hello BattleShips!'
+    erb :index
   end
+
+
 
   set :views, Proc.new{File.join(root, "..", "views")}
 

@@ -8,3 +8,5 @@ Feature: Starting the game
 		When I follow the "New Game"
 		Then I should see "What's your name?"
 
+
+
