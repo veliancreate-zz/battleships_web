@@ -5,6 +5,10 @@ class BattleShips < Sinatra::Base
     erb :index
   end
 
+  get '/new_game' do
+    erb :new_game
+  end
+
 
 
   set :views, Proc.new{File.join(root, "..", "views")}

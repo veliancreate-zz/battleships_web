@@ -3,9 +3,10 @@ Given(/^I am on the homepage$/) do
 end
 
 When(/^I follow the "(.*?)"$/) do |arg1|
-  click_link('New Game')  
+  click_link(arg1)  
 end
 
 Then(/^I should see "(.*?)"$/) do |arg1|
-  expect(page).has_content?("Welcome to Battleships")    
+  expect(page).to have_content(arg1)
 end
+
