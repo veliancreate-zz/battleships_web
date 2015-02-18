@@ -9,8 +9,9 @@ Feature: Starting the game
 		Then I should see "Welcome to Battleships!"
 
 	Scenario: Creating a player
-		Given you see a form on new_game
-		When you enter your name and click submit 
+		Given I am on new_game
+		When I enter my name in the form 
+		And I click submit 
 		Then I should see a board
 
 

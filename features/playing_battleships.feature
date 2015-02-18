@@ -4,7 +4,7 @@ Feature: playing_battleships
 	I want to be able to take a shot
 
 	Scenario: Shooting
-		Given I see a form
+		Given I see a form to enter a shot
 		When you shoot on a coordinate
 		Then I should be told if I have hit
 
