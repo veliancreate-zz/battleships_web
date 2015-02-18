@@ -11,15 +11,15 @@ class BattleShips < Sinatra::Base
   end
 
   get '/new_game' do
-    if params[:name]
-      @player=Player.new
-      @player.name=params[:name]
-    end  
     erb :game
   end  
 
-  get '/game' do
-
+  post '/new_game' do
+    if params[:name]
+      player = session[:player]=Player.new
+      @player = player
+      @player.name=params[:name]
+    end  
     erb :game
   end
 

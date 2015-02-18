@@ -1,9 +1,9 @@
 <h1>Welcome to Battleships!</h1>
 
 <% if @player %>
-    <h2>Hello, <%=@player.name %></h2>
+    <h2>Hello, <%=@player.name %> </h2>
     <p>Enter a coordinate in the box below to take a shot!</p>
-    <form action='/game'>
+    <form action='/game' method="post">
         <input type="text" name="shoot_on">
         <input type="submit" name="shoot" value="shoot">
     </form>
@@ -30,7 +30,7 @@
 
 
 <% else %>
-    <form action='/new_game'>
+    <form action='/new_game' method="post">
         <input type="text" name="name">
         <input type="submit" name="submit" value="Submit">
     </form>
