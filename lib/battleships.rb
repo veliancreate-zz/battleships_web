@@ -1,13 +1,25 @@
 require 'sinatra/base'
+require_relative 'player'
+
 
 class BattleShips < Sinatra::Base
+  
+  enable :sessions
+
   get '/' do
     erb :index
   end
 
+  get '/new_game' do
+    if params[:name]
+      @player=Player.new
+      @player.name=params[:name]
+    end  
+    erb :game
+  end  
+
   get '/game' do
-    @player=params[:name]
-    @shoot=params[:shoot]
+
     erb :game
   end
 

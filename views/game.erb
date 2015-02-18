@@ -1,6 +1,13 @@
 <h1>Welcome to Battleships!</h1>
 
 <% if @player %>
+    <h2>Hello, <%=@player.name %></h2>
+    <p>Enter a coordinate in the box below to take a shot!</p>
+    <form action='/game'>
+        <input type="text" name="shoot_on">
+        <input type="submit" name="shoot" value="shoot">
+    </form>
+
     <table id="battleships_board">
         <tr>
             <td></td>   <!--  Gap in the upper left corner --> 
@@ -20,13 +27,10 @@
         <% end %>
     </table>
 <!-- We build form you can fill in your shots -->
-    <form action='/game'>
-            <input type="text" name="shoot_on">
-            <input type="submit" name="shoot" value="shoot">
-    </form>
+
 
 <% else %>
-    <form action='/game'>
+    <form action='/new_game'>
         <input type="text" name="name">
         <input type="submit" name="submit" value="Submit">
     </form>
