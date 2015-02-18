@@ -11,7 +11,7 @@ Then(/^I should see "(.*?)"$/) do |arg1|
 end
 
 Given(/^I am on new_game$/) do
-  visit('/new_game')
+  visit('/game')
 end
 
 When(/^I enter my name in the form$/) do
@@ -23,11 +23,11 @@ When(/^I click submit$/) do
 end
 
 Then(/^I should see a board$/) do
-  
+  expect(page).to have_content('J10')
 end
 
 Given(/^I see a form to enter a shot$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(fill_in('shoot_on', :with=>'B6'))  
 end
 
 When(/^you shoot on a coordinate$/) do

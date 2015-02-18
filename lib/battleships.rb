@@ -5,14 +5,11 @@ class BattleShips < Sinatra::Base
     erb :index
   end
 
-  get '/new_game' do
+  get '/game' do
     @player=params[:name]
-  
-
-    erb :new_game
+    @shoot=params[:shoot]
+    erb :game
   end
-
-
 
   set :views, Proc.new{File.join(root, "..", "views")}
 
