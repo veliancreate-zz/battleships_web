@@ -1,9 +1,9 @@
 <h1>Welcome to Battleships!</h1>
 
 <% if @player %>
-    <table>
+    <table id="battleships_board">
         <tr>
-            <td></td>    
+            <td></td>   <!--  Gap in the upper left corner --> 
             <% [*'A'..'J'].each do |col| %>
                 <td><%= col %></td>         
             <% end %>
@@ -19,9 +19,16 @@
             </tr>
         <% end %>
     </table>
+<!-- We build form you can fill in your shots -->
+    <form action='/game'>
+            <input type="text" name="shoot_on">
+            <input type="submit" name="shoot" value="shoot">
+    </form>
+
 <% else %>
-    <form action='/new_game'>
+    <form action='/game'>
         <input type="text" name="name">
         <input type="submit" name="submit" value="Submit">
     </form>
 <% end %>
+
