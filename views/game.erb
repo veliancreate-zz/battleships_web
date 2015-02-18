@@ -21,7 +21,8 @@
                 <th><%= n %></th>
                 <% [*'A'..'J'].each do |l| %>
                     <% joined = l+n.to_s %>
-                    <td id="<%= joined %>"> <%= joined %></td>
+                    <% joined_sym = joined.to_sym %>
+                    <td id="<%= joined %>"> <%= @board.grid[joined_sym].hit? %></td>
                 <% end %>
             </tr>
         <% end %>

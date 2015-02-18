@@ -1,7 +1,8 @@
 require 'sinatra/base'
 require_relative 'player'
 require_relative 'game'
-
+require_relative 'cell'
+require_relative 'board'
 
 class BattleShips < Sinatra::Base
   
@@ -20,9 +21,15 @@ class BattleShips < Sinatra::Base
       player = session[:player]=Player.new
       @player = player
       @player.name=params[:name]
+      @board=Board.new(Cell)
+      p @board.grid[:A1]
     end  
     erb :game
   end
+
+  post '/game' do 
+    
+  end  
 
   set :views, Proc.new{File.join(root, "..", "views")}
 
