@@ -37,11 +37,11 @@ Given(/^I see a form to enter a shot$/) do
 end
 
 When(/^you shoot on a coordinate$/) do
-  pending # express the regexp above with the code you wish you had
+  click_button('shoot')
 end
 
 Then(/^I should be told if I have hit$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(find('table').missed)
 end
 
 Given(/^my opponents ships have all sunk$/) do
