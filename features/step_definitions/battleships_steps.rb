@@ -23,7 +23,7 @@ When(/^I click submit$/) do
 end
 
 Then(/^I should see a board$/) do
-  expect(page).to have_content('J10')
+  expect(find('table#battleships_board'))
 end
 
 Given(/^a logged in user called "(.*?)"$/) do |arg1|

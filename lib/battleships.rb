@@ -3,6 +3,8 @@ require_relative 'player'
 require_relative 'game'
 require_relative 'cell'
 require_relative 'board'
+require_relative 'ship'
+require_relative 'water'
 
 class BattleShips < Sinatra::Base
   
@@ -22,13 +24,20 @@ class BattleShips < Sinatra::Base
       @player = player
       @player.name=params[:name]
       @board=Board.new(Cell)
-      p @board.grid[:A1]
-    end  
+    end 
+
+    ('A'..'J').each do |row|  
+      (1..10).each do |col|
+        joined = row+col.to_s
+        joined_sym = joined.to_sym
+        if !@board.grid[joined_sym].content.is_a?(Ship) then @board.grid[joined_sym].content = Water.new end
+      end
+    end 
     erb :game
   end
 
   post '/game' do 
-    
+      
   end  
 
   set :views, Proc.new{File.join(root, "..", "views")}
