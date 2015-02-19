@@ -41,7 +41,7 @@ When(/^you shoot on a coordinate$/) do
 end
 
 Then(/^I should be told that I have shot$/) do
-  expect("/game").to have_content('false')
+  expect(page).to have_content('false')
 end
 
 Given(/^my opponents ships have all sunk$/) do

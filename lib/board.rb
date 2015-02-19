@@ -14,6 +14,17 @@ class Board
 		put_on_grid_if_possible(coords, ship)
 	end
 
+	def push_water(water)  
+    ('A'..'J').each do |row|  
+      (1..10).each do |col|
+        joined = row+col.to_s
+        joined_sym = joined.to_sym
+        if !grid[joined_sym].content.is_a?(Ship) then grid[joined_sym].content = water.new end
+      end
+    end 
+  end
+
+
 	def floating_ships?
 		ships.any?(&:floating?)
 	end

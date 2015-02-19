@@ -1,0 +1,991 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="" href="">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="../public/css/normalize.css">
+        <link rel="stylesheet" href="../public/css/main.css">
+        
+    </head>
+    <body>
+        <h1>Welcome to Battleships!</h1>
+
+    <h2>Hello, Thomas </h2>
+    <p>Enter a coordinate in the box below to take a shot!</p>
+    <form action='/game' method="post">
+        <input type="text" name="shoot_on">
+        <input type="submit" name="shoot" value="shoot">
+    </form>
+
+
+    <table id="player_battleships_board">
+        <tr>
+            <td></td>   <!--  Gap in the upper left corner --> 
+            
+                <td>A</td>         
+            
+                <td>B</td>         
+            
+                <td>C</td>         
+            
+                <td>D</td>         
+            
+                <td>E</td>         
+            
+                <td>F</td>         
+            
+                <td>G</td>         
+            
+                <td>H</td>         
+            
+                <td>I</td>         
+            
+                <td>J</td>         
+            
+        </tr>
+
+          
+            <tr>
+                <th>1</th>
+                
+                    
+                    
+                    <td id="A1"> false</td>
+                
+                    
+                    
+                    <td id="B1"> false</td>
+                
+                    
+                    
+                    <td id="C1"> false</td>
+                
+                    
+                    
+                    <td id="D1"> false</td>
+                
+                    
+                    
+                    <td id="E1"> false</td>
+                
+                    
+                    
+                    <td id="F1"> false</td>
+                
+                    
+                    
+                    <td id="G1"> false</td>
+                
+                    
+                    
+                    <td id="H1"> false</td>
+                
+                    
+                    
+                    <td id="I1"> false</td>
+                
+                    
+                    
+                    <td id="J1"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>2</th>
+                
+                    
+                    
+                    <td id="A2"> false</td>
+                
+                    
+                    
+                    <td id="B2"> false</td>
+                
+                    
+                    
+                    <td id="C2"> false</td>
+                
+                    
+                    
+                    <td id="D2"> false</td>
+                
+                    
+                    
+                    <td id="E2"> false</td>
+                
+                    
+                    
+                    <td id="F2"> false</td>
+                
+                    
+                    
+                    <td id="G2"> false</td>
+                
+                    
+                    
+                    <td id="H2"> false</td>
+                
+                    
+                    
+                    <td id="I2"> false</td>
+                
+                    
+                    
+                    <td id="J2"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>3</th>
+                
+                    
+                    
+                    <td id="A3"> false</td>
+                
+                    
+                    
+                    <td id="B3"> false</td>
+                
+                    
+                    
+                    <td id="C3"> false</td>
+                
+                    
+                    
+                    <td id="D3"> false</td>
+                
+                    
+                    
+                    <td id="E3"> false</td>
+                
+                    
+                    
+                    <td id="F3"> false</td>
+                
+                    
+                    
+                    <td id="G3"> false</td>
+                
+                    
+                    
+                    <td id="H3"> false</td>
+                
+                    
+                    
+                    <td id="I3"> false</td>
+                
+                    
+                    
+                    <td id="J3"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>4</th>
+                
+                    
+                    
+                    <td id="A4"> false</td>
+                
+                    
+                    
+                    <td id="B4"> false</td>
+                
+                    
+                    
+                    <td id="C4"> false</td>
+                
+                    
+                    
+                    <td id="D4"> false</td>
+                
+                    
+                    
+                    <td id="E4"> false</td>
+                
+                    
+                    
+                    <td id="F4"> false</td>
+                
+                    
+                    
+                    <td id="G4"> false</td>
+                
+                    
+                    
+                    <td id="H4"> false</td>
+                
+                    
+                    
+                    <td id="I4"> false</td>
+                
+                    
+                    
+                    <td id="J4"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>5</th>
+                
+                    
+                    
+                    <td id="A5"> false</td>
+                
+                    
+                    
+                    <td id="B5"> false</td>
+                
+                    
+                    
+                    <td id="C5"> false</td>
+                
+                    
+                    
+                    <td id="D5"> false</td>
+                
+                    
+                    
+                    <td id="E5"> false</td>
+                
+                    
+                    
+                    <td id="F5"> false</td>
+                
+                    
+                    
+                    <td id="G5"> false</td>
+                
+                    
+                    
+                    <td id="H5"> false</td>
+                
+                    
+                    
+                    <td id="I5"> false</td>
+                
+                    
+                    
+                    <td id="J5"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>6</th>
+                
+                    
+                    
+                    <td id="A6"> false</td>
+                
+                    
+                    
+                    <td id="B6"> true</td>
+                
+                    
+                    
+                    <td id="C6"> false</td>
+                
+                    
+                    
+                    <td id="D6"> false</td>
+                
+                    
+                    
+                    <td id="E6"> false</td>
+                
+                    
+                    
+                    <td id="F6"> false</td>
+                
+                    
+                    
+                    <td id="G6"> false</td>
+                
+                    
+                    
+                    <td id="H6"> false</td>
+                
+                    
+                    
+                    <td id="I6"> false</td>
+                
+                    
+                    
+                    <td id="J6"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>7</th>
+                
+                    
+                    
+                    <td id="A7"> false</td>
+                
+                    
+                    
+                    <td id="B7"> false</td>
+                
+                    
+                    
+                    <td id="C7"> false</td>
+                
+                    
+                    
+                    <td id="D7"> false</td>
+                
+                    
+                    
+                    <td id="E7"> false</td>
+                
+                    
+                    
+                    <td id="F7"> false</td>
+                
+                    
+                    
+                    <td id="G7"> false</td>
+                
+                    
+                    
+                    <td id="H7"> false</td>
+                
+                    
+                    
+                    <td id="I7"> false</td>
+                
+                    
+                    
+                    <td id="J7"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>8</th>
+                
+                    
+                    
+                    <td id="A8"> false</td>
+                
+                    
+                    
+                    <td id="B8"> false</td>
+                
+                    
+                    
+                    <td id="C8"> false</td>
+                
+                    
+                    
+                    <td id="D8"> false</td>
+                
+                    
+                    
+                    <td id="E8"> false</td>
+                
+                    
+                    
+                    <td id="F8"> false</td>
+                
+                    
+                    
+                    <td id="G8"> false</td>
+                
+                    
+                    
+                    <td id="H8"> false</td>
+                
+                    
+                    
+                    <td id="I8"> false</td>
+                
+                    
+                    
+                    <td id="J8"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>9</th>
+                
+                    
+                    
+                    <td id="A9"> false</td>
+                
+                    
+                    
+                    <td id="B9"> false</td>
+                
+                    
+                    
+                    <td id="C9"> false</td>
+                
+                    
+                    
+                    <td id="D9"> false</td>
+                
+                    
+                    
+                    <td id="E9"> false</td>
+                
+                    
+                    
+                    <td id="F9"> false</td>
+                
+                    
+                    
+                    <td id="G9"> false</td>
+                
+                    
+                    
+                    <td id="H9"> false</td>
+                
+                    
+                    
+                    <td id="I9"> false</td>
+                
+                    
+                    
+                    <td id="J9"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>10</th>
+                
+                    
+                    
+                    <td id="A10"> false</td>
+                
+                    
+                    
+                    <td id="B10"> false</td>
+                
+                    
+                    
+                    <td id="C10"> false</td>
+                
+                    
+                    
+                    <td id="D10"> false</td>
+                
+                    
+                    
+                    <td id="E10"> false</td>
+                
+                    
+                    
+                    <td id="F10"> false</td>
+                
+                    
+                    
+                    <td id="G10"> false</td>
+                
+                    
+                    
+                    <td id="H10"> false</td>
+                
+                    
+                    
+                    <td id="I10"> false</td>
+                
+                    
+                    
+                    <td id="J10"> false</td>
+                
+            </tr>
+        
+    </table>
+
+    <table id="battleships_board">
+        <tr>
+            <td></td>   <!--  Gap in the upper left corner --> 
+            
+                <td>A</td>         
+            
+                <td>B</td>         
+            
+                <td>C</td>         
+            
+                <td>D</td>         
+            
+                <td>E</td>         
+            
+                <td>F</td>         
+            
+                <td>G</td>         
+            
+                <td>H</td>         
+            
+                <td>I</td>         
+            
+                <td>J</td>         
+            
+        </tr>
+
+          
+            <tr>
+                <th>1</th>
+                
+                    
+                    
+                    <td id="A1"> false</td>
+                
+                    
+                    
+                    <td id="B1"> false</td>
+                
+                    
+                    
+                    <td id="C1"> false</td>
+                
+                    
+                    
+                    <td id="D1"> false</td>
+                
+                    
+                    
+                    <td id="E1"> false</td>
+                
+                    
+                    
+                    <td id="F1"> false</td>
+                
+                    
+                    
+                    <td id="G1"> false</td>
+                
+                    
+                    
+                    <td id="H1"> false</td>
+                
+                    
+                    
+                    <td id="I1"> false</td>
+                
+                    
+                    
+                    <td id="J1"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>2</th>
+                
+                    
+                    
+                    <td id="A2"> false</td>
+                
+                    
+                    
+                    <td id="B2"> false</td>
+                
+                    
+                    
+                    <td id="C2"> false</td>
+                
+                    
+                    
+                    <td id="D2"> false</td>
+                
+                    
+                    
+                    <td id="E2"> false</td>
+                
+                    
+                    
+                    <td id="F2"> false</td>
+                
+                    
+                    
+                    <td id="G2"> false</td>
+                
+                    
+                    
+                    <td id="H2"> false</td>
+                
+                    
+                    
+                    <td id="I2"> false</td>
+                
+                    
+                    
+                    <td id="J2"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>3</th>
+                
+                    
+                    
+                    <td id="A3"> false</td>
+                
+                    
+                    
+                    <td id="B3"> false</td>
+                
+                    
+                    
+                    <td id="C3"> false</td>
+                
+                    
+                    
+                    <td id="D3"> false</td>
+                
+                    
+                    
+                    <td id="E3"> false</td>
+                
+                    
+                    
+                    <td id="F3"> false</td>
+                
+                    
+                    
+                    <td id="G3"> false</td>
+                
+                    
+                    
+                    <td id="H3"> false</td>
+                
+                    
+                    
+                    <td id="I3"> false</td>
+                
+                    
+                    
+                    <td id="J3"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>4</th>
+                
+                    
+                    
+                    <td id="A4"> false</td>
+                
+                    
+                    
+                    <td id="B4"> false</td>
+                
+                    
+                    
+                    <td id="C4"> false</td>
+                
+                    
+                    
+                    <td id="D4"> false</td>
+                
+                    
+                    
+                    <td id="E4"> false</td>
+                
+                    
+                    
+                    <td id="F4"> false</td>
+                
+                    
+                    
+                    <td id="G4"> false</td>
+                
+                    
+                    
+                    <td id="H4"> false</td>
+                
+                    
+                    
+                    <td id="I4"> false</td>
+                
+                    
+                    
+                    <td id="J4"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>5</th>
+                
+                    
+                    
+                    <td id="A5"> false</td>
+                
+                    
+                    
+                    <td id="B5"> false</td>
+                
+                    
+                    
+                    <td id="C5"> false</td>
+                
+                    
+                    
+                    <td id="D5"> false</td>
+                
+                    
+                    
+                    <td id="E5"> false</td>
+                
+                    
+                    
+                    <td id="F5"> false</td>
+                
+                    
+                    
+                    <td id="G5"> false</td>
+                
+                    
+                    
+                    <td id="H5"> false</td>
+                
+                    
+                    
+                    <td id="I5"> false</td>
+                
+                    
+                    
+                    <td id="J5"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>6</th>
+                
+                    
+                    
+                    <td id="A6"> false</td>
+                
+                    
+                    
+                    <td id="B6"> false</td>
+                
+                    
+                    
+                    <td id="C6"> false</td>
+                
+                    
+                    
+                    <td id="D6"> false</td>
+                
+                    
+                    
+                    <td id="E6"> false</td>
+                
+                    
+                    
+                    <td id="F6"> false</td>
+                
+                    
+                    
+                    <td id="G6"> false</td>
+                
+                    
+                    
+                    <td id="H6"> false</td>
+                
+                    
+                    
+                    <td id="I6"> false</td>
+                
+                    
+                    
+                    <td id="J6"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>7</th>
+                
+                    
+                    
+                    <td id="A7"> false</td>
+                
+                    
+                    
+                    <td id="B7"> false</td>
+                
+                    
+                    
+                    <td id="C7"> false</td>
+                
+                    
+                    
+                    <td id="D7"> false</td>
+                
+                    
+                    
+                    <td id="E7"> false</td>
+                
+                    
+                    
+                    <td id="F7"> false</td>
+                
+                    
+                    
+                    <td id="G7"> false</td>
+                
+                    
+                    
+                    <td id="H7"> false</td>
+                
+                    
+                    
+                    <td id="I7"> false</td>
+                
+                    
+                    
+                    <td id="J7"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>8</th>
+                
+                    
+                    
+                    <td id="A8"> false</td>
+                
+                    
+                    
+                    <td id="B8"> false</td>
+                
+                    
+                    
+                    <td id="C8"> false</td>
+                
+                    
+                    
+                    <td id="D8"> false</td>
+                
+                    
+                    
+                    <td id="E8"> false</td>
+                
+                    
+                    
+                    <td id="F8"> false</td>
+                
+                    
+                    
+                    <td id="G8"> false</td>
+                
+                    
+                    
+                    <td id="H8"> false</td>
+                
+                    
+                    
+                    <td id="I8"> false</td>
+                
+                    
+                    
+                    <td id="J8"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>9</th>
+                
+                    
+                    
+                    <td id="A9"> false</td>
+                
+                    
+                    
+                    <td id="B9"> false</td>
+                
+                    
+                    
+                    <td id="C9"> false</td>
+                
+                    
+                    
+                    <td id="D9"> false</td>
+                
+                    
+                    
+                    <td id="E9"> false</td>
+                
+                    
+                    
+                    <td id="F9"> false</td>
+                
+                    
+                    
+                    <td id="G9"> false</td>
+                
+                    
+                    
+                    <td id="H9"> false</td>
+                
+                    
+                    
+                    <td id="I9"> false</td>
+                
+                    
+                    
+                    <td id="J9"> false</td>
+                
+            </tr>
+          
+            <tr>
+                <th>10</th>
+                
+                    
+                    
+                    <td id="A10"> false</td>
+                
+                    
+                    
+                    <td id="B10"> false</td>
+                
+                    
+                    
+                    <td id="C10"> false</td>
+                
+                    
+                    
+                    <td id="D10"> false</td>
+                
+                    
+                    
+                    <td id="E10"> false</td>
+                
+                    
+                    
+                    <td id="F10"> false</td>
+                
+                    
+                    
+                    <td id="G10"> false</td>
+                
+                    
+                    
+                    <td id="H10"> false</td>
+                
+                    
+                    
+                    <td id="I10"> false</td>
+                
+                    
+                    
+                    <td id="J10"> false</td>
+                
+            </tr>
+        
+    </table>
+
+<!-- We build form you can fill in your shots -->
+
+
+
+    </body>
+</html>

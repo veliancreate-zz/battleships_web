@@ -11,8 +11,12 @@ class BattleShips < Sinatra::Base
   GAME = Game.new
   BOARD = Board.new(Cell)
   COMPUTER_BOARD = Board.new(Cell)
-  battleship = Ship.battleship 
+
+  battleship = Ship.battleship
   COMPUTER_BOARD.place(battleship, :B1, :horizontally)
+  BOARD.place(battleship, :B1, :horizontally)
+  COMPUTER_BOARD.push_water(Water)
+  BOARD.push_water(Water) 
 
   enable :sessions
 
@@ -32,29 +36,18 @@ class BattleShips < Sinatra::Base
       @computer.board= COMPUTER_BOARD
       @player.name=params[:name]
       @player.board = BOARD
-      GAME.add_player(@player)
-      GAME.add_player(@computer)
+      GAME.player1 = @player
+      GAME.player2 = @computer
     end 
     @board = BOARD
-    def push_water  
-      ('A'..'J').each do |row|  
-        (1..10).each do |col|
-          joined = row+col.to_s
-          joined_sym = joined.to_sym
-          if !@computer.board.grid[joined_sym].content.is_a?(Ship) then @computer.board.grid[joined_sym].content = Water.new end
-        end
-      end 
-    end  
-    push_water
-
+ 
     erb :game
   end 
 
+  get '/game' do 
 
-  get '/game' do
     erb :game
   end  
-
 
   post '/game' do
     @game=GAME

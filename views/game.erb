@@ -8,7 +8,8 @@
         <input type="submit" name="shoot" value="shoot">
     </form>
 
-    <table id="battleships_board">
+
+    <table id="player_battleships_board">
         <tr>
             <td></td>   <!--  Gap in the upper left corner --> 
             <% [*'A'..'J'].each do |col| %>
@@ -27,6 +28,27 @@
             </tr>
         <% end %>
     </table>
+
+    <table id="battleships_board">
+        <tr>
+            <td></td>   <!--  Gap in the upper left corner --> 
+            <% [*'A'..'J'].each do |col| %>
+                <td><%= col %></td>         
+            <% end %>
+        </tr>
+
+        <% [*1..10].each do |n| %>  
+            <tr>
+                <th><%= n %></th>
+                <% [*'A'..'J'].each do |l| %>
+                    <% joined = l+n.to_s %>
+                    <% joined_sym = joined.to_sym %>
+                    <td id="<%= joined %>"> <%= @player.board.grid[joined_sym].hit? %></td>
+                <% end %>
+            </tr>
+        <% end %>
+    </table>
+
 <!-- We build form you can fill in your shots -->
 
 <% else %>
