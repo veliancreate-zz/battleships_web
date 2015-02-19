@@ -48,12 +48,19 @@ class BattleShips < Sinatra::Base
     erb :game
   end 
 
+  get '/game' do
+    erb :game
+  end  
+
   post '/game' do
     @game=GAME
     @player = GAME.player1
-    
+    @computer = GAME.player2
     @shot = params[:shoot_on].to_sym
 
+    @game.shoots(@shot)
+
+    erb :game
   end  
 
   set :views, Proc.new{File.join(root, "..", "views")}
