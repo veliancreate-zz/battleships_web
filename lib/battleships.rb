@@ -53,7 +53,7 @@ class BattleShips < Sinatra::Base
     @game=GAME
     @player = GAME.player1
     @computer = GAME.player2
-    @shot = params[:shoot_on].to_sym
+    @shot = params[:shoot_on].capitalize.to_sym
     @game.shoots(@shot)
 
     erb :game

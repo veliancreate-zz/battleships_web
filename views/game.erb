@@ -23,7 +23,7 @@
                 <% [*'A'..'J'].each do |l| %>
                     <% joined = l+n.to_s %>
                     <% joined_sym = joined.to_sym %>
-                    <td id="<%= joined %>"> <%= @computer.board.grid[joined_sym].hit? %></td>
+                    <td id="<%= joined %>"> <% if @computer.board.grid[joined_sym].hit? then%> ! <% else %>~<% end %> </td>
                 <% end %>
             </tr>
         <% end %>
@@ -43,7 +43,7 @@
                 <% [*'A'..'J'].each do |l| %>
                     <% joined = l+n.to_s %>
                     <% joined_sym = joined.to_sym %>
-                    <td id="<%= joined %>"> <%= @player.board.grid[joined_sym].hit? %></td>
+                    <td id="<%= joined %>"> <% if @player.board.grid[joined_sym].hit? then%> ! <% else %>~<% end %> </td>
                 <% end %>
             </tr>
         <% end %>
