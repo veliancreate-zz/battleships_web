@@ -3,7 +3,7 @@
 <% if @player %>
     <h2>Hello, <%=@player.name %> </h2>
     <p>Enter a coordinate in the box below to take a shot!</p>
-    <form action='/new_game' method="post">
+    <form action='/game' method="post">
         <input type="text" name="shoot_on">
         <input type="submit" name="shoot" value="shoot">
     </form>
@@ -22,7 +22,7 @@
                 <% [*'A'..'J'].each do |l| %>
                     <% joined = l+n.to_s %>
                     <% joined_sym = joined.to_sym %>
-                    <td id="<%= joined %>"> <%= @board.grid[joined_sym].hit? %></td>
+                    <td id="<%= joined %>"> <%= @computer.board.grid[joined_sym].hit? %></td>
                 <% end %>
             </tr>
         <% end %>
