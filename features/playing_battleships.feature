@@ -7,7 +7,7 @@ Feature: playing_battleships
 		Given a logged in user called "Thomas"
 		Given I see a form to enter a shot
 		When you shoot on a coordinate
-		Then I should be told if I have hit
+		Then I should be told that I have shot
 
 	Scenario: Winner
 		Given my opponents ships have all sunk

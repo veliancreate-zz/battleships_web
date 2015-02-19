@@ -26,19 +26,18 @@ class BattleShips < Sinatra::Base
       @board=Board.new(Cell)
     end 
 
-    ('A'..'J').each do |row|  
-      (1..10).each do |col|
-        joined = row+col.to_s
-        joined_sym = joined.to_sym
-        if !@board.grid[joined_sym].content.is_a?(Ship) then @board.grid[joined_sym].content = Water.new end
-      end
-    end 
-    erb :game
-  end
+    def push_water  
+      ('A'..'J').each do |row|  
+        (1..10).each do |col|
+          joined = row+col.to_s
+          joined_sym = joined.to_sym
+          if !@board.grid[joined_sym].content.is_a?(Ship) then @board.grid[joined_sym].content = Water.new end
+        end
+      end 
+    end  
 
-  post '/game' do 
-      
-  end  
+    erb :game
+  end 
 
   set :views, Proc.new{File.join(root, "..", "views")}
 

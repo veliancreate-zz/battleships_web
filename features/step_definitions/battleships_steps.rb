@@ -40,8 +40,8 @@ When(/^you shoot on a coordinate$/) do
   click_button('shoot')
 end
 
-Then(/^I should be told if I have hit$/) do
-  expect(find('table').missed)
+Then(/^I should be told if I have missed$/) do
+  expect()
 end
 
 Given(/^my opponents ships have all sunk$/) do

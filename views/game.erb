@@ -3,7 +3,7 @@
 <% if @player %>
     <h2>Hello, <%=@player.name %> </h2>
     <p>Enter a coordinate in the box below to take a shot!</p>
-    <form action='/game' method="post">
+    <form action='/new_game' method="post">
         <input type="text" name="shoot_on">
         <input type="submit" name="shoot" value="shoot">
     </form>
