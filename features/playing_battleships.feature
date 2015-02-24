@@ -9,6 +9,11 @@ Feature: playing_battleships
 		When you shoot on a coordinate
 		Then I should be told that I have shot
 
+	Scenario: Logging a shot
+		Given a logged in user called "Julian"
+		When I have successfully hit a Ship
+		Then I should be told that I have hit the ship
+
 	Scenario: Winner
 		Given my opponents ships have all sunk
 		When I am the winner

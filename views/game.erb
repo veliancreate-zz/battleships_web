@@ -23,7 +23,7 @@
                 <% [*'A'..'J'].each do |l| %>
                     <% joined = l+n.to_s %>
                     <% joined_sym = joined.to_sym %>
-                    <td id="<%= joined %>"> <% if @computer.board.grid[joined_sym].hit? then%> ! <% else %>~<% end %> </td>
+                    <td id="<%= joined %>"> <% if @computer.board.grid[joined_sym].hit? then %><%=@message%><% else %>~<% end %> </td>
                 <% end %>
             </tr>
         <% end %>
@@ -43,7 +43,7 @@
                 <% [*'A'..'J'].each do |l| %>
                     <% joined = l+n.to_s %>
                     <% joined_sym = joined.to_sym %>
-                    <td id="<%= joined %>"> <% if @player.board.grid[joined_sym].hit? then%> ! <% else %>~<% end %> </td>
+                    <td id="<%= joined %>"> <% if @player.board.grid[joined_sym].hit? then%><%= @message%> <% else %>~<% end %> </td>
                 <% end %>
             </tr>
         <% end %>
@@ -52,6 +52,7 @@
 <!-- We build form you can fill in your shots -->
 
 <% else %>
+    <p>Please enter your name below<p>
     <form action='/new_game' method="post">
         <input type="text" name="name">
         <input type="submit" name="submit" value="Submit">
